@@ -6,9 +6,9 @@ import { PiTimerDuotone } from "react-icons/pi";
 
 const About = () => {
   return (
-    <section className="py-[100px] bg-[bg-[#F4F7FA]">
+    <section className="py-[100px] bg-[#F4F7FA]">
       <Container>
-        <div className="grid lg:grid-cols-3 lg:gap-x-[39px]">
+        <div className="my-10 grid lg:grid-cols-3 lg:gap-x-[39px]">
           <div className="flex items-start space-x-[24px]">
             <div>
               <TbTruckDelivery className="text-primary w-[40px] h-[40px]" />
@@ -65,7 +65,7 @@ const About = () => {
             <h2 className="text-3xl font-bold text-text">
               About Our FMCG Supply Chain
             </h2>
-            <p className="text-sm text-text mt-4">
+            <p className="text-sm text-text mt-2">
               We are committed to providing the best FMCG products to our
               customers. Our supply chain is designed to ensure that you receive
               high-quality products on time, every time.

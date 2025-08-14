@@ -41,7 +41,11 @@ const Navbar = () => {
           />
         </Link>
 
-        <ul className="flex items-center space-x-12 text-white">
+        <ul
+          className={`${
+            isScrolled ? "text-primary" : " text-white"
+          } flex items-center space-x-12 `}
+        >
           <li>
             <Link
               href="#about"
@@ -53,10 +57,19 @@ const Navbar = () => {
 
           <li>
             <Link
+              href="#about"
+              className={`hover:border-b-2 hover:border-b-secondary transition-all ease-linear duration-100 flex items-center space-x-2`}
+            >
+              <span className="font-medium">Why</span>
+            </Link>
+          </li>
+
+          <li>
+            <Link
               href="#products"
               className={`hover:border-b-2 hover:border-b-secondary transition-all ease-linear duration-100 flex items-center space-x-2 hover:`}
             >
-              <span className="font-medium">Products</span>
+              <span className="font-medium">Categories</span>
             </Link>
           </li>
 
