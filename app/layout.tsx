@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/widgets/Navbar";
 import Footer from "@/components/widgets/Footer";
+import QueryClientProviderContainer from "@/components/widgets/QueryClientProviderContainer";
 
 export const metadata: Metadata = {
   title: "NAJEC FMCG",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`relative antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <QueryClientProviderContainer>
+          <Navbar />
+          {children}
+          <Footer />
+        </QueryClientProviderContainer>
       </body>
     </html>
   );

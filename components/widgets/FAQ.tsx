@@ -61,7 +61,7 @@ Tools, Team Tracking, Team Calendar and Messaging.`,
 
                 <button
                   onClick={() => toggleFAQ(item.id)}
-                  className="w-fit px-[2px] pt-[2.5px] pb-[1.px] bg-[#808891] rounded-[20px]"
+                  className="cursor-pointer w-fit px-[2px] pt-[2.5px] pb-[1.px] bg-[#808891] rounded-[20px]"
                 >
                   <BiChevronDown className="text-white w-[18px] h-[18px]" />
                 </button>
