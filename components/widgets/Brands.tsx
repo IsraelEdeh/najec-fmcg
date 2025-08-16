@@ -15,12 +15,29 @@ const Brands = () => {
         <Swiper
           modules={[Autoplay]}
           spaceBetween={50}
-          slidesPerView={7}
           speed={1000}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
-            pauseOnMouseEnter: false,
+            pauseOnMouseEnter: false
+          }}
+          breakpoints={{
+            200: {
+              slidesPerView: 2.5,
+              spaceBetween: 10
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 30
+            },
+            768: {
+              slidesPerView: 5,
+              spaceBetween: 40
+            },
+            1024: {
+              slidesPerView: 7,
+              spaceBetween: 50
+            }
           }}
           loop={true}
           allowTouchMove={false}
@@ -45,7 +62,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/mykiakia-logo.png"
+              src="/pepsi.jpg"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -53,7 +70,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/coca-cola-logo.png"
+              src="/nestle.jpg"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -61,7 +78,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/mykiakia-logo.png"
+              src="/uac.png"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -69,7 +86,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/coca-cola-logo.png"
+              src="/indomie.png"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -77,7 +94,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/mykiakia-logo.png"
+              src="/golden.png"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -85,7 +102,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/coca-cola-logo.png"
+              src="/schweppes.jpg"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -93,7 +110,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/mykiakia-logo.png"
+              src="/7up.png"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -101,23 +118,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/coca-cola-logo.png"
-              alt="mykiakia logo"
-              width={100}
-              height={100}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/mykiakia-logo.png"
-              alt="mykiakia logo"
-              width={100}
-              height={100}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/coca-cola-logo.png"
+              src="/amstel.jpg"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -126,14 +127,6 @@ const Brands = () => {
           <SwiperSlide>
             <Image
               src="/mykiakia-logo.png"
-              alt="mykiakia logo"
-              width={100}
-              height={100}
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/coca-cola-logo.png"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -157,7 +150,7 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/mykiakia-logo.png"
+              src="/pepsi.jpg"
               alt="mykiakia logo"
               width={100}
               height={100}
@@ -165,7 +158,15 @@ const Brands = () => {
           </SwiperSlide>
           <SwiperSlide>
             <Image
-              src="/coca-cola-logo.png"
+              src="/nestle.jpg"
+              alt="mykiakia logo"
+              width={100}
+              height={100}
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <Image
+              src="/uac.png"
               alt="mykiakia logo"
               width={100}
               height={100}

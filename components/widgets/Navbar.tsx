@@ -5,6 +5,7 @@ import Container from "../elements/Container";
 import CustomButton from "../elements/CustomButton";
 import Image from "next/image";
 import Link from "next/link";
+import { FaBars } from "react-icons/fa6";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,24 +28,25 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-[20px] glass-nav border-b bg-[#F4F6F9] bg-opacity- border-b-[#E7E7E7] fixed top-0 left-0 z-50 w-full ${
+      className={`overflow-x-hidden py-[20px] glass-nav border-b bg-[#F4F6F9] bg-opacity- border-b-[#E7E7E7] fixed top-0 left-0 z-50 w-full ${
         isScrolled ? "bg-white bg-opacity-100" : "bg-[#F4F6F9] bg-opacity-25"
       }`}
     >
       <Container className="flex items-center justify-between">
         <Link href="/">
-          <Image
+          {/* <Image
             src="/landing-page/neptune-logo.png"
             alt="logo"
             width={160}
             height={29}
-          />
+          /> */}
+          NF
         </Link>
 
         <ul
           className={`${
             isScrolled ? "text-primary" : " text-white"
-          } flex items-center space-x-12 `}
+          } hidden lg:flex items-center space-x-12 `}
         >
           <li>
             <Link
@@ -83,11 +85,13 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6">
           <CustomButton classType="primary" className="px-[30px] py-[9px]">
             Request a quote
           </CustomButton>
         </div>
+
+        <FaBars className={`${isScrolled? "bg-white bg-opacity-100" : "bg-[#F4F6F9] bg-opacity-25"} lg:hidden block`} />
       </Container>
     </nav>
   );

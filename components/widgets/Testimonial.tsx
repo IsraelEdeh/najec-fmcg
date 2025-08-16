@@ -66,18 +66,18 @@ const Testimonial = () => {
   return (
     <section className="py-[60px] bg-[#F4F7FA]">
       <Container>
-        <div className="w-[589px] mx-auto">
+        <div className="lg:w-[589px] mx-auto">
           <div>
-            <p className="uppercase text-sm text-center text-primary">
+            <p className="uppercase lg:text-sm text-xs text-center text-primary">
               Testimonials
             </p>
-            <h2 className="text-3xl text-center text-text font-bold mt-4">
+            <h2 className="lg:text-3xl text-2xl text-center text-text font-bold mt-4">
               Let's explore customer sentiments towards our offerings.
             </h2>
           </div>
         </div>
 
-        <div className="mt-[60px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+        <div className="mt-[60px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 lg:gap-y-8 lg:gap-x-8 gap-x-0 gap-y-4">
           {testimonials.map((t, i) => (
             <div
               key={i}

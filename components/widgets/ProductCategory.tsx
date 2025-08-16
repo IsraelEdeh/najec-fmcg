@@ -7,7 +7,7 @@ const ProductCategory = () => {
   return (
     <section className="py-[100px] bg-[#ffffff]">
       <Container>
-        <div className="w-[450px] ">
+        <div className="lg:w-[450px] ">
           <h2 className="text-3xl w-fit font-bold text-text">
             About Our FMCG Supply Chain
           </h2>
@@ -18,14 +18,14 @@ const ProductCategory = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-8 gap-6 mt-10">
-          <div className="h-[390px] relative col-span-1 lg:col-span-4 rounded-[25px] bg-[#EEEEEE] p-6">
+        <div className="grid lg:grid-cols-8 grid-cols-1 lg:gap-y-6 lg:gap-x-6 gap-x-0 gap-y-3 mt-10">
+          <div className="lg:h-[390px] relative col-span-1 lg:col-span-4 rounded-[25px] bg-[#EEEEEE] p-6">
             <div>
               <h3 className="text-xl font-medium text-[#444444]">
                 Home & Living
               </h3>
 
-              <p className="text-[60px] font-extrabold text-[#4C4C4C]/65">
+              <p className="lg:text-[60px] font-extrabold text-[#4C4C4C]/65">
                 SOFA
               </p>
 
@@ -35,7 +35,7 @@ const ProductCategory = () => {
               </button>
             </div>
 
-            <div className="absolute bottom-2 right-2">
+            <div className="mt-3.5 lg:absolute lg:bottom-2 lg:right-2">
               <Image
                 src="/sofa.png"
                 alt="Sofa"
@@ -178,7 +178,7 @@ const ProductCategory = () => {
               </button>
             </div>
 
-            <div className="absolute bottom-2 right-2">
+            <div className="lg:absolute lg:bottom-2 lg:right-2 mt-3.5">
               <Image
                 src="/sofa.png"
                 alt="Sofa"

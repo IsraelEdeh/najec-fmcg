@@ -3,12 +3,13 @@ import Container from "@/components/elements/Container";
 import { TbTruckDelivery } from "react-icons/tb";
 import { MdHighQuality } from "react-icons/md";
 import { PiTimerDuotone } from "react-icons/pi";
+import Image from "next/image";
 
 const About = () => {
   return (
-    <section className="py-[100px] bg-[#F4F7FA]">
+    <section id="about" className="lg:py-[40px] py-4 bg-[#F4F7FA]">
       <Container>
-        <div className="my-10 grid lg:grid-cols-3 lg:gap-x-[39px]">
+        <div className="my-10 grid lg:grid-cols-3 lg:gap-x-[39px] lg:gap-y-0 gap-y-2">
           <div className="flex items-start space-x-[24px]">
             <div>
               <TbTruckDelivery className="text-primary w-[40px] h-[40px]" />
@@ -58,17 +59,44 @@ const About = () => {
           </div>
         </div>
 
-        <div className="mt-[60px] grid grid-cols-10 gap-x-10">
-          <div className="col-span-10 lg:col-span-6"></div>
+        <div className="mt-[60px] grid grid-cols-10 lg:gap-x-10 lg:gap-y-0 gap-y-2">
+          <div className="col-span-10 lg:col-span-4 flex items-center justify-center">
+            <Image
+              src="/about.png"
+              alt="About Us Image"
+              width={470}
+              height={470}
+              className="lg:block hidden"
+            />
+             <Image
+              src="/about.png"
+              alt="About Us Image"
+              width={270}
+              height={270}
+              className="block lg:hidden"
+            />
+          </div>
 
-          <div className="col-span-10 lg:col-span-4">
-            <h2 className="text-3xl font-bold text-text">
-              About Our FMCG Supply Chain
-            </h2>
-            <p className="text-sm text-text mt-2">
-              We are committed to providing the best FMCG products to our
-              customers. Our supply chain is designed to ensure that you receive
-              high-quality products on time, every time.
+          <div className="col-span-10 lg:col-span-6">
+            <h2 className="text-3xl font-bold text-text">About us</h2>
+            <p className="text-sm text-text mt-2 lg:space-y-2.5 space-y-2">
+              <span className="block">
+                We are a leading trading company that specializes in importing,
+                distributing, and merchandising fast-moving consumer goods
+                (FMCG) products.
+              </span>
+              <span className="block">
+                We provide both wholesale and retail distribution as well as
+                sales and merchandising of a wide range of high-quality FMCG
+                products, including food, beverages, personal care, household,
+                and other essential products to our customers.
+              </span>
+              <span className="block">
+                With years of experience in the industry, we have established a
+                reputation for delivering excellent service and quality products
+                to our clients whilst managing a motivated, efficient and
+                effective team.
+              </span>
             </p>
           </div>
         </div>

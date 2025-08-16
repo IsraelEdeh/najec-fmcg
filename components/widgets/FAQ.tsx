@@ -40,9 +40,9 @@ Tools, Team Tracking, Team Calendar and Messaging.`,
 
   return (
     <Container>
-      <div className="my-[113px] grid grid-cols-2 gap-x-10">
+      <div className="my-[113px] grid lg:grid-cols-2 gap-x-10">
         <div>
-          <p className="font-bold text-[32px] text-text">
+          <p className="font-bold text-[32px] leading-[45px] lg:leading-[65px]  text-text">
             Frequently Asked Questions
           </p>
           <p className="text-base text-[#808891] space-y-3">
@@ -50,7 +50,7 @@ Tools, Team Tracking, Team Calendar and Messaging.`,
           </p>
         </div>
 
-        <div className="space-y-[20px]">
+        <div className="space-y-[20px] lg:mt-0 mt-4">
           {faq.map((item, index) => (
             <div
               key={item.id}

@@ -7,20 +7,20 @@ const Why = () => {
   return (
     <section className="bg-[#F4F7FA] py-[100px]">
       <Container>
-        <div className="w-[589px] mx-auto">
+        <div className="lg:w-[589px] mx-auto">
           <div>
-            <p className="uppercase text-sm text-center text-primary">
+            <p className="uppercase lg:text-sm text-xs text-center text-primary">
               Why Choose us
             </p>
-            <h2 className="text-3xl text-center text-text font-bold mt-4">
+            <h2 className="lg:text-3xl text-2xl text-center text-text font-bold mt-4">
               We are committed to providing the best products to our customers.
             </h2>
           </div>
         </div>
 
-        <div className="mx-auto w-[878px] mt-[60px]">
-          <div className="grid lg:grid-cols-2 gap-x-10 gap-y-20">
-            <div className="flex items-start space-x-[30px]">
+        <div className="mx-auto lg:w-[878px] mt-[60px]">
+          <div className="grid lg:grid-cols-2 lg:gap-x-10 gap-y-20">
+            <div className="flex items-start lg:space-x-[30px] space-x-[10px]">
               <div className="bg-[#e3e5f9] py-3 px-3 rounded-[15px]">
                 <TbTruckDelivery className="text-primary w-[40px] h-[40px]" />
               </div>
@@ -36,7 +36,7 @@ const Why = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-[30px]">
+            <div className="flex items-start lg:space-x-[30px] space-x-[10px]">
               <div className="bg-[#f5e7e9] py-3 px-3 rounded-[15px]">
                 <BsLayers className="text-[#F64B4B] w-[40px] h-[40px]" />
               </div>
@@ -52,7 +52,7 @@ const Why = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-[30px]">
+            <div className="flex items-start lg:space-x-[30px] space-x-[10px]">
               <div className="bg-[#e3e5f9] py-3 px-3 rounded-[15px]">
                 <TbTruckDelivery className="text-primary w-[40px] h-[40px]" />
               </div>
@@ -68,7 +68,7 @@ const Why = () => {
               </div>
             </div>
 
-            <div className="flex items-start space-x-[30px]">
+            <div className="flex items-start lg:space-x-[30px] space-x-[10px]">
               <div className="bg-[#e3e5f9] py-3 px-3 rounded-[15px]">
                 <TbTruckDelivery className="text-primary w-[40px] h-[40px]" />
               </div>
