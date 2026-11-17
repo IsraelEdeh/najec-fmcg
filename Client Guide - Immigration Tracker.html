@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Immigration Tracker — Client Guide</title>
+<style>
+:root { --brand:#1f3a5f; --accent:#2e6bd6; --text:#1d2939; --muted:#667085; --line:#e4e7ec; --bg:#f6f8fb; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; font:15px/1.6 "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; color:var(--text);
+       background:var(--bg); }
+header { background:var(--brand); color:#fff; padding:28px 32px; }
+header h1 { margin:0; font-size:26px; font-weight:600; }
+header p { margin:6px 0 0; opacity:.8; font-size:13px; }
+.layout { display:flex; max-width:1200px; margin:0 auto; gap:32px; padding:24px 32px 64px; }
+nav { flex:0 0 240px; position:sticky; top:16px; align-self:flex-start; max-height:calc(100vh - 32px);
+      overflow:auto; background:#fff; border:1px solid var(--line); border-radius:10px; padding:16px; }
+nav b { display:block; font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
+        margin-bottom:8px; }
+nav a { display:block; color:var(--text); text-decoration:none; padding:5px 8px; border-radius:6px; font-size:14px; }
+nav a:hover { background:var(--bg); color:var(--accent); }
+main { flex:1; min-width:0; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px 36px 36px; }
+h2 { color:var(--brand); font-size:21px; margin:36px 0 12px; padding-top:12px; border-top:1px solid var(--line);
+     scroll-margin-top:16px; }
+main > h2:first-of-type { border-top:none; }
+h3 { font-size:17px; margin:24px 0 8px; scroll-margin-top:16px; }
+a { color:var(--accent); }
+code { background:#f2f4f7; border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:13px;
+       font-family:Consolas, "Cascadia Mono", monospace; }
+.table-wrap { overflow-x:auto; margin:12px 0 20px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th { background:var(--brand); color:#fff; text-align:left; font-weight:600; }
+th, td { padding:9px 12px; border:1px solid var(--line); vertical-align:top; }
+tbody tr:nth-child(even) { background:#fafbfc; }
+blockquote { margin:16px 0; padding:12px 16px; background:#fff8e6; border-left:4px solid #f5a524; border-radius:6px; }
+blockquote p { margin:0; }
+hr { display:none; }
+.back { display:inline-block; margin-top:28px; font-size:13px; }
+@media (max-width: 860px) {
+  .layout { flex-direction:column; padding:16px; }
+  nav { position:static; max-height:none; width:100%; }
+  main { padding:4px 18px 24px; }
+}
+@media print {
+  body { background:#fff; }
+  header { background:#fff; color:var(--brand); border-bottom:2px solid var(--brand); padding:0 0 12px; }
+  nav, .back { display:none; }
+  .layout { display:block; padding:0; }
+  main { border:none; padding:0; }
+  h2 { break-after:avoid; }
+  table, blockquote { break-inside:avoid; }
+  .table-wrap { overflow:visible; }
+  th { background:#e8edf5 !important; color:#000; }
+}
+</style>
+</head>
+<body>
+<header id="top"><h1>Immigration Tracker — Client Guide</h1><p>Last updated 16 November 2026</p></header>
+<div class="layout">
+<nav aria-label="Contents"><b>Contents</b><a href="#1-what-you-receive">1. What you receive</a><a href="#2-install">2. Install</a><a href="#3-first-time-setup-import-your-excel-tracker-once">3. First-time setup: import your Excel tracker (once)</a><a href="#4-everyday-use">4. Everyday use</a><a href="#5-email-notifications-recipients-and-escalation">5. Email notifications, recipients and escalation</a><a href="#6-importing-again-backups-and-recovery">6. Importing again, backups and recovery</a><a href="#7-where-data-is-stored">7. Where data is stored</a><a href="#8-troubleshooting">8. Troubleshooting</a></nav>
+<main>
+<p>Immigration Tracker replaces the <em>Expatriate Quota &amp; CERPAC Tracker</em> Excel workbook with a desktop app. It calculates every expiry, blackout and renewal date automatically, shows them on a dashboard, and emails reminders before things expire.</p>
+<hr />
+<h2 id="1-what-you-receive">1. What you receive</h2>
+<p>A zip file containing:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ImmigrationTracker.exe</code></td>
+<td>The application</td>
+</tr>
+<tr>
+<td><code>_internal\</code> folder</td>
+<td>Files the app needs — keep it next to the <code>.exe</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Requirements:</strong> Windows 10/11. No Python, Excel or admin rights needed. Microsoft Outlook is only needed if you want email reminders sent through Outlook.</p>
+<h2 id="2-install">2. Install</h2>
+<ol>
+<li>Unzip to a permanent location, e.g. <code>C:\Users\&lt;you&gt;\Apps\ImmigrationTracker\</code> (avoid the Downloads folder).</li>
+<li>Double-click <code>ImmigrationTracker.exe</code>.</li>
+<li>If Windows shows <strong>"Windows protected your PC"</strong>, click <strong>More info → Run anyway</strong> (the app is not code-signed).</li>
+<li>Optional: right-click the <code>.exe</code> → <strong>Send to → Desktop (create shortcut)</strong>.</li>
+</ol>
+<blockquote>
+<p>Do not move the <code>.exe</code> away from the <code>_internal</code> folder — the app will not start without it.</p>
+</blockquote>
+<h2 id="3-first-time-setup-import-your-excel-tracker-once">3. First-time setup: import your Excel tracker (once)</h2>
+<ol>
+<li>Open the app and go to <strong>Data &amp; Settings</strong>.</li>
+<li>Click <strong>Choose workbook…</strong> and select your <em>Expatriate Quota &amp; CERPAC Tracker</em> <code>.xlsx</code> file.</li>
+<li>Review the summary (number of EQ positions and EEPNL quotas found) and confirm.</li>
+<li>If some rows have missing or unreadable dates, click <strong>Show Details</strong> to see exactly which rows to fix.</li>
+</ol>
+<p>After this, <strong>the app is your tracker</strong> — you no longer need to maintain the Excel file.</p>
+<p><strong>Tip:</strong> if the workbook is saved next to the <code>.exe</code> with its original name, the app imports it automatically the first time it opens.</p>
+<h2 id="4-everyday-use">4. Everyday use</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Page</th>
+<th>What it's for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dashboard</strong></td>
+<td>Tiles grouped into <strong>EQ positions</strong>, <strong>CERPAC</strong> and <strong>EEPNL quota register</strong> (e.g. <em>EQ notification due</em>, <em>EQ in blackout</em>, <em>Expired EQs</em>, <em>Final-term EQs</em>, <em>CERPAC 4-month / 1-month notice</em>, <em>Expired CERPACs</em>, <em>Expired EEPNL quotas</em>). <strong>Click any tile</strong> to open the matching filtered list. Below: <strong>Action required</strong> (each record with <em>why it is flagged</em> and the <em>next step</em>; double-click to open it), <strong>Upcoming milestones</strong> and expiry charts.</td>
+</tr>
+<tr>
+<td><strong>EQ &amp; CERPAC</strong></td>
+<td>All EQ positions with EQ status, Renewal, EQ expiry, EQ notification, blackout, lifespan end and both CERPAC notice dates. Filter by EQ status, Renewal or CERPAC status. <strong>Update FMI approval…</strong> sets a new FMI approval date for the selected rows at once (EQ expiry and notices recalculate).</td>
+</tr>
+<tr>
+<td><strong>EEPNL Quotas</strong></td>
+<td>Quota register with EQ status, Renewal, EQ expiry, EQ notification (7 months), lifespan end, category, movement (Moving Out / Hold) and notes.</td>
+</tr>
+<tr>
+<td><strong>Milestones</strong></td>
+<td>Every EQ, CERPAC and EEPNL milestone with its date, <strong>Action</strong> status (<em>Not started</em>, <em>In progress</em>, <em>Done</em>), expiry date, state (<em>Upcoming</em>, <em>Due now</em>, <em>Expired</em>, <em>Passed</em>) and a plain-English description. <strong>Mark in progress / Mark done</strong> stop escalation emails (see section 5).</td>
+</tr>
+<tr>
+<td><strong>Notifications</strong></td>
+<td>Email recipients and their roles (Owner, Manager, Partner), delivery, reminder schedule and escalation (see section 5).</td>
+</tr>
+<tr>
+<td><strong>Activity History</strong></td>
+<td>Read-only record of imports, the fields they changed, and action status changes, newest first. Search by position, field or value.</td>
+</tr>
+<tr>
+<td><strong>Data &amp; Settings</strong></td>
+<td>Import / export Excel, restore previous data, theme, alert window, <strong>maximum quota lifespan</strong>.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dates and statuses recalculate automatically every day — nothing needs refreshing.</p>
+<h3 id="rules-used">Rules used</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EQ expiry</td>
+<td>Most recent FMI approval + 2 years (update the FMI approval date in the app when a renewal is approved)</td>
+</tr>
+<tr>
+<td>EQ notification</td>
+<td>7 months before EQ expiry</td>
+</tr>
+<tr>
+<td>EQ blackout</td>
+<td>Closes 6 months before EQ expiry (no new expat or CERPAC renewal on that EQ)</td>
+</tr>
+<tr>
+<td>CERPAC notifications</td>
+<td>4 months and 1 month before CERPAC expiry</td>
+</tr>
+<tr>
+<td>Lifespan end</td>
+<td>First grant + maximum quota lifespan (default 4 years, changeable in <strong>Data &amp; Settings</strong>; an EEPNL non-renewable override date takes priority)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Renewal column:</strong> <em>Renewable</em> · <em>Final term</em> (still active, but cannot be renewed once it expires) · <em>Expired – renewable</em> · <em>Expired – non-renewable</em> (cannot be renewed).</p>
+<p><strong>Status colours:</strong> green = on track / valid · amber = EQ notify / 4-month notice · orange = EQ blackout / 1-month notice / due now · red = expired · purple = final term · grey = vacant / not set.</p>
+<h2 id="5-email-notifications-recipients-and-escalation">5. Email notifications, recipients and escalation</h2>
+<h3 id="what-gets-sent">What gets sent</h3>
+<p><strong>Notices</strong> are sent <strong>once</strong>, when the notice date is reached: <strong>EQ notification 7 months</strong> before EQ expiry, and <strong>CERPAC notifications 4 months and 1 month</strong> before CERPAC expiry (EEPNL quota 7-month notices too). If the PC was off, the notice still goes out until the expiry date; a CERPAC 1-month notice replaces a 4-month notice that was never sent. Optional <strong>countdown reminders</strong> (default 7, 3 and 1 days before) can be ticked for expiry and blackout dates.</p>
+<p>If nobody acts on an item, the app <strong>follows up and escalates</strong> automatically, as described below.</p>
+<h3 id="who-receives-what-roles">Who receives what: roles</h3>
+<p>Every recipient has a role:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Who</th>
+<th>Receives</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Owner</strong></td>
+<td>The team member(s) who do the work</td>
+<td>Every notice and reminder, plus a second reminder if they haven't started</td>
+</tr>
+<tr>
+<td><strong>Manager</strong></td>
+<td>Their manager</td>
+<td>Escalations only. The Owners are copied</td>
+</tr>
+<tr>
+<td><strong>Partner</strong></td>
+<td>The responsible partner or director</td>
+<td>Final escalations only. The Owners and Managers are copied</td>
+</tr>
+</tbody>
+</table></div>
+<p>You can have several people in each role. Everyone in a role gets that role's emails.</p>
+<h3 id="add-or-change-recipients">Add or change recipients</h3>
+<ol>
+<li>Open <strong>Notifications</strong>.</li>
+<li>Under <strong>Recipients</strong>, type the <strong>email address</strong> and, optionally, the <strong>name</strong>.</li>
+<li>Pick the <strong>role</strong>: <em>Owner</em>, <em>Manager</em> or <em>Partner</em>. It goes back to <em>Owner</em> after each person is added.</li>
+<li>Click <strong>+ Add</strong>. Repeat for each person.</li>
+<li>To change someone's role, select them in the list (Ctrl+click to select several), click <strong>Change role…</strong> and choose the new role.</li>
+<li><strong>Pause / resume</strong> stops or restarts emails to someone without removing them, e.g. during leave. <strong>Remove</strong> deletes them from the list.</li>
+</ol>
+<blockquote>
+<p>Add at least one <strong>Manager</strong> and one <strong>Partner</strong> if you want escalation to work. If an item needs escalating and nobody has that role, the app shows a warning in <strong>Last check</strong>. The escalation is held back and goes out as soon as someone with that role is added.</p>
+</blockquote>
+<h3 id="how-escalation-works">How escalation works</h3>
+<p>After the first email about an item, the app checks every day whether someone has marked it <strong>In progress</strong> or <strong>Done</strong>. If it is still <strong>Not started</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Days after the first email</th>
+<th>Email goes to</th>
+<th>Copied to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>3 days</strong></td>
+<td>Owners: <em>second reminder</em></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>7 days</strong></td>
+<td><strong>Manager</strong>: <em>escalation</em></td>
+<td>Owners</td>
+</tr>
+<tr>
+<td><strong>14 days</strong></td>
+<td><strong>Partner</strong>: <em>escalation</em></td>
+<td>Owners and Managers</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>Each step is sent <strong>once</strong>. If the PC was off, only the latest step reached is sent, never a backlog.</li>
+<li>Emails sent <strong>before</strong> escalation was installed only count from the day you installed it. Old notices don't jump straight to the partner.</li>
+<li>An "item" is one expiry of one position and expat. Renewing the expiry date starts a fresh cycle.</li>
+</ul>
+<p><strong>Change the timing:</strong> on <strong>Notifications → Reminder schedule → Escalation</strong>, set the days for <strong>Owners again after</strong>, <strong>Manager after</strong> and <strong>Partner after</strong>, then click <strong>Save settings</strong>. Set a step to <strong>Off</strong> to skip it. Untick <strong>Escalate items still 'Not started'…</strong> to turn escalation off completely. Each step must come after the previous one.</p>
+<h3 id="stop-the-reminders-mark-items-on-the-milestones-page">Stop the reminders: mark items on the Milestones page</h3>
+<p>Escalation only happens when nobody records that work has started. When you pick up an item:</p>
+<ol>
+<li>Open <strong>Milestones</strong> and find the item. Use the <strong>All actions</strong> filter to show only <em>Not started</em> items.</li>
+<li>Select it (Ctrl+click to select several).</li>
+<li>Click:
+   - <strong>Mark in progress</strong>: you are working on it. <strong>No more escalation.</strong> The normal notices still arrive as deadlines get closer.
+   - <strong>Mark done</strong>: finished. <strong>All emails for that item stop.</strong>
+   - <strong>Reset</strong>: back to <em>Not started</em>, e.g. if it was marked by mistake.</li>
+</ol>
+<p>The status applies to every milestone for the same expiry. Every status change is recorded in <strong>Activity History</strong> with who changed it and when.</p>
+<blockquote>
+<p>When a renewal is approved, also update the date (e.g. <strong>Update FMI approval…</strong> or the CERPAC expiry). The new expiry date then gets its own notices and escalation in due course.</p>
+</blockquote>
+<h3 id="delivery-and-first-time-setup">Delivery and first-time setup</h3>
+<ol>
+<li>Open <strong>Notifications</strong> and add your recipients as above.</li>
+<li><strong>Delivery:</strong> choose <strong>Outlook</strong> (sends from the Outlook account on this PC) or <strong>SMTP server</strong> (enter host, port, username, password and from address — the password is stored encrypted).</li>
+<li>Tick <strong>Send notification emails automatically</strong>, choose the notices / countdown reminders, check the <strong>Escalation</strong> days → <strong>Save settings</strong>.</li>
+<li>Click <strong>Send test email</strong>. It goes to every active recipient.</li>
+<li>Click <strong>Install background check</strong> so emails go out even when the app is closed (runs daily at 08:00 and shortly after you sign in; catches up if the PC was off).</li>
+</ol>
+<p>Each email lists the type (EQ / CERPAC / EEPNL), position, expat, expiry date, time left and what to do. Escalation emails also show when the item was first emailed and how many days it has been waiting. <strong>Due now</strong> lists what the next check will send, including follow-ups and escalations. The <strong>Sent log</strong> lists everything already sent, with <em>Sent as</em> showing <em>Notice</em>, <em>Second reminder (Owner)</em>, <em>Escalation to Manager</em> or <em>Escalation to Partner</em>.</p>
+<blockquote>
+<p>Reminders need the PC to be on and the user signed in. If Outlook blocks automated sending under company policy, switch to <strong>SMTP</strong>.</p>
+</blockquote>
+<h2 id="6-importing-again-backups-and-recovery">6. Importing again, backups and recovery</h2>
+<p>You can import a workbook again at any time, for example an updated tracker from a colleague. The app compares the file with what it already holds and shows you what will change before anything is saved:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Result</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>New</strong></td>
+<td>In the file but not in the app — it will be added</td>
+</tr>
+<tr>
+<td><strong>Updated</strong></td>
+<td>In both, with different values — the file's values are applied (click <strong>Show Details</strong> to see each change)</td>
+</tr>
+<tr>
+<td><strong>Unchanged</strong></td>
+<td>Identical — nothing happens</td>
+</tr>
+<tr>
+<td><strong>Not in this file</strong></td>
+<td>Only in the app (e.g. added in the app since the last import)</td>
+</tr>
+</tbody>
+</table></div>
+<p>Then choose:</p>
+<ul>
+<li><strong>Update and add</strong> (recommended) — applies the changes and adds new records. Records that are only in the app are <strong>kept</strong>.</li>
+<li><strong>Replace</strong> — the same, but records that are not in the file are <strong>removed</strong> (you are asked to confirm).</li>
+<li><strong>Cancel</strong> — nothing is changed.</li>
+</ul>
+<p>Good to know:</p>
+<ul>
+<li>Records are matched by <strong>S/N and title</strong>, or by title alone if the S/N was renumbered.</li>
+<li><strong>Nothing is duplicated</strong>. Importing the same file twice says <em>Already up to date</em>.</li>
+<li>A <strong>blank date</strong> in the file never erases a date already in the app. A <strong>blank expat</strong> name means the position is now vacant.</li>
+<li>Notes and EQ ↔ quota links added in the app are kept.</li>
+<li>If the workbook has only one of the two tables (EQ &amp; CERPAC or EEPNL quotas), the other list in the app is <strong>not touched</strong>.</li>
+<li>Notices already emailed are <strong>not sent again</strong> after an import.</li>
+<li>Every import and every changed field is listed in <strong>Activity History</strong>.</li>
+<li>A backup is saved automatically before each import. To undo one: <strong>Data &amp; Settings → Restore previous data…</strong> and pick the backup by date/time.</li>
+<li>If the file isn't a tracker, is damaged, password-protected, or missing required columns, the app explains what's wrong and <strong>your current data is left untouched</strong>.</li>
+<li><strong>Export workbook…</strong> creates an Excel copy (original layout with live formulas) for sharing, reporting or archiving.</li>
+</ul>
+<h2 id="7-where-data-is-stored">7. Where data is stored</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tracker data</td>
+<td><code>%APPDATA%\ImmigrationTracker\tracker.db</code></td>
+</tr>
+<tr>
+<td>Automatic backups (last 10)</td>
+<td><code>%APPDATA%\ImmigrationTracker\backups\</code></td>
+</tr>
+<tr>
+<td>Reminder log / error log</td>
+<td><code>%APPDATA%\ImmigrationTracker\alerts.log</code>, <code>error.log</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Data is per Windows user on each PC. To move to a new PC, export to Excel and import it there (or copy <code>tracker.db</code>).</p>
+<h2 id="8-troubleshooting">8. Troubleshooting</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App doesn't start</td>
+<td>Make sure <code>_internal</code> is in the same folder as the <code>.exe</code>; unzip again if needed.</td>
+</tr>
+<tr>
+<td>"Windows protected your PC"</td>
+<td><strong>More info → Run anyway</strong>.</td>
+</tr>
+<tr>
+<td>Import says the file can't be read</td>
+<td>Open it in Excel, <strong>Save As → Excel Workbook (.xlsx)</strong> without a password, and retry.</td>
+</tr>
+<tr>
+<td>Import says a column is missing</td>
+<td>Check the header row contains <em>EQ POSITION TITLE</em>, <em>FIRST GRANT</em> and <em>MOST RECENT FMI APPROVAL</em> (and <em>QUOTA POSITION TITLE</em>, <em>DATE OF FIRST GRANT</em>, <em>EXPIRY DATE</em> for quotas).</td>
+</tr>
+<tr>
+<td>Test email fails (Outlook)</td>
+<td>Open Outlook once and sign in, then retry; or use SMTP.</td>
+</tr>
+<tr>
+<td>No reminders arriving</td>
+<td>Check <strong>Notifications</strong>: recipients active, automatic sending ticked, background check installed, and the "Last check" line.</td>
+</tr>
+<tr>
+<td>Manager / Partner never get escalations</td>
+<td>Make sure someone has that role in <strong>Recipients</strong> and is <em>Active</em>, escalation is ticked, and the step isn't set to <em>Off</em>. Items marked <em>In progress</em> or <em>Done</em> are never escalated.</td>
+</tr>
+<tr>
+<td>Escalations keep coming for an item we're handling</td>
+<td>On <strong>Milestones</strong>, select the item and click <strong>Mark in progress</strong> (or <strong>Mark done</strong> when finished).</td>
+</tr>
+<tr>
+<td>Something went wrong message</td>
+<td>Your data is safe. Send <code>%APPDATA%\ImmigrationTracker\error.log</code> to support.</td>
+</tr>
+<tr>
+<td>Wrong old version opens</td>
+<td>Delete any older copies of <code>ImmigrationTracker.exe</code> (e.g. on the Desktop) and use the new one.</td>
+</tr>
+</tbody>
+</table></div>
+<a class="back" href="#top">&uarr; Back to top</a>
+</main>
+</div>
+</body>
+</html>
